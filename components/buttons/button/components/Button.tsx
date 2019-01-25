@@ -21,6 +21,7 @@ export class Button extends React.Component<ButtonProps, ButtonState> {
     public render() {
         return (
             <button
+                className={this.props.className || "button"}
                 onClick={this.onClick}
                 onMouseOver={this.onHover}
             >

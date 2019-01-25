@@ -4,7 +4,6 @@ export class Statement {
             return;
         }
 
-        console.log(statement, method);
         method();
     }
 }

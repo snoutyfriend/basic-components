@@ -3,36 +3,42 @@
 const path = require('path');
 module.exports = (baseConfig, env, defaultConfig) => {
     // Extend defaultConfig as you need.
-console.log(defaultConfig);
+console.log(baseConfig);
     // For example, add typescript loader:
-    defaultConfig.module.rules.push({
+    baseConfig.module.rules.push({
         test: /\.(ts|tsx)$/,
         loader: require.resolve("ts-loader")
     });
-    defaultConfig.resolve.extensions.push(".ts", ".tsx");
+    baseConfig.resolve.extensions.push(".ts", ".tsx", '.css', '.scss');
 
-    defaultConfig.module.rules.push({
-        test: /\.scss$/,
-        use: [
-            {
-                loader: "style-loader" // creates style nodes from JS strings
-            },
-            {
-                loader: "css-loader" // translates CSS into CommonJS
-            },
-            {
-                loader: "sass-loader" // compiles Sass to CSS
-            },
-        ]
-    });
+    baseConfig.module.rules.push(
+        {
+            test: /\.scss$/,
+            use: [
+                {
+                    loader: "style-loader" // creates style nodes from JS strings
+                },
+                {
+                    loader: "css-loader", // translates CSS into CommonJS
+                },
+                {
+                    loader: "sass-loader" // compiles Sass to CSS
+                },
+            ]
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+        },
+    );
 
-    defaultConfig.resolve.alias = {
+    baseConfig.resolve.alias = {
         // "react": "preact-compat",
         // "react-dom": "preact-compat",
         // Not necessary unless you consume a module using `createClass`
         // "create-react-class": "preact-compat/lib/create-react-class",
     };
-    defaultConfig.node = {
+    baseConfig.node = {
         fs: "empty"
     };
     // defaultConfig.externals = {
@@ -43,5 +49,5 @@ console.log(defaultConfig);
     //         'react/addons': true,
     // };
 
-    return defaultConfig;
+    return baseConfig;
 };

@@ -5,4 +5,7 @@ import { describe, it, specs, test } from "storybook-addon-specifications";
 import {PrimaryButton} from "./buttons/primary-button";
 
 const stories = storiesOf("Button", module);
-stories.add("buttons", () => <PrimaryButton/>);
+stories.add("buttons",
+    () => {
+        return <PrimaryButton className={"button primary-button button--stretch"}>SEARCH</PrimaryButton>;
+    });

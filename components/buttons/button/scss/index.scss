@@ -1,0 +1,15 @@
+.button {
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.8px;
+  text-align: center;
+  font-family: $font-family;
+  padding: 15px 30px;
+
+  &--stretch {
+    width: 100%;
+  }
+}
