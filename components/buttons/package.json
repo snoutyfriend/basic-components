@@ -1,0 +1,16 @@
+{
+  "name": "@snoutyfriend/buttons",
+  "version": "1.0.0",
+  "description": "Snoutyfriend button components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "snoutyfriend",
+    "button",
+    "react"
+  ],
+  "author": "Tomislav Fabeta",
+  "license": "ISC"
+}
