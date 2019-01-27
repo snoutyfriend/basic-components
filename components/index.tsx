@@ -5,11 +5,12 @@ import {describe, it, specs, test} from "storybook-addon-specifications";
 import {PrimaryButton} from "./buttons/primary-button";
 import {Header, HeaderType} from "./headers/header/components/Header";
 import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
+import {Panel} from "./panels/panel/components/Panel";
 
 const buttonStories = storiesOf("Buttons", module);
 buttonStories.add("primary-button",
     () => {
-        return <PrimaryButton className={"button primary-button button--stretch"}>SEARCH</PrimaryButton>;
+        return <PrimaryButton className={"button--stretch"}>SEARCH</PrimaryButton>;
     });
 
 const headerStories = storiesOf("Headers", module);
@@ -43,6 +44,29 @@ headerStories.add("h3",
             </div>
         );
     });
+const paragprahStories = storiesOf("Paragraphs", module);
+paragprahStories.add("normal",
+    () => {
+        return (
+            <div>
+                <Paragraph>
+                    {getLoremIpsum()}
+                </Paragraph>
+            </div>
+        );
+    });
+const panelStories = storiesOf("Panels", module);
+panelStories.add("find pet-friendly places",
+    () => {
+        return (
+            <Panel>
+                <Header> Find pet-friendly places</Header>
+                <Paragraph>{getLoremIpsum()}</Paragraph>
+                <PrimaryButton className="button--stretch">Find</PrimaryButton>
+            </Panel>
+        );
+    });
+
 function getHeaderInAllColors(headerType: HeaderType) {
     const coloredHeaders = [];
     for (let i = 1; i <= 4; i++) {
@@ -52,13 +76,9 @@ function getHeaderInAllColors(headerType: HeaderType) {
     }
     return coloredHeaders;
 }
-const paragprahStories = storiesOf("Paragraphs", module);
-paragprahStories.add("normal",
-    () => {
-        return (
-            <div>
-                <Paragraph>
-                    {`Lorem Ipsum is simply dummy text of the printing and
+
+function getLoremIpsum(): string {
+    return `Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s, when an unknown
                     printer took a galley of type and scrambled it to make a
@@ -66,8 +86,5 @@ paragprahStories.add("normal",
                     but also the leap into electronic typesetting, remaining essentially unchanged.
                     It was popularised in the 1960s with the release of Letraset sheets containing
                     Lorem Ipsum passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.`}
-                </Paragraph>
-            </div>
-        );
-    });
+                    like Aldus PageMaker including versions of Lorem Ipsum.`;
+}
