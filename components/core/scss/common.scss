@@ -1,0 +1,35 @@
+.color {
+  &#{&}--1 {
+    color: $color1;
+  }
+
+  &#{&}--2 {
+    color: $color2;
+  }
+
+  &#{&}--3 {
+    color: $color3;
+  }
+
+  &#{&}--4 {
+    color: $color4;
+  }
+}
+
+.bg {
+  &#{&}--1 {
+    color: $color1;
+  }
+
+  &#{&}--2 {
+    color: $color2;
+  }
+
+  &#{&}--3 {
+    color: $color3;
+  }
+
+  &#{&}--4 {
+    color: $color4;
+  }
+}

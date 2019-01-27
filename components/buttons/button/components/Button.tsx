@@ -1,16 +1,12 @@
 import * as React from "react";
+import {DefaultComponentProps} from "../../../core/interfaces/DefaultComponentProps";
 import {Statement} from "../../../core/Statement";
 
-export interface ButtonProps {
-    className?: string;
-    onClick?(): void;
-    onHover?(): void;
-}
 export interface ButtonState {
 
 }
 
-export class Button extends React.Component<ButtonProps, ButtonState> {
+export class Button extends React.Component<DefaultComponentProps, ButtonState> {
     constructor(props) {
         super(props);
 
