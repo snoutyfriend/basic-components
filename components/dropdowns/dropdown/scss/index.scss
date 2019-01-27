@@ -1,0 +1,19 @@
+.dropdown {
+  border: 1px solid $color6;
+  font-family: $font-family;
+  font-size: 18px;
+
+  &__item {
+    padding: 24px 18px;
+  }
+
+  &__items {
+
+  }
+
+  &__search {
+    width: 100%;
+    font-family: $font-family;
+    font-size: 18px;
+  }
+}

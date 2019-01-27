@@ -6,6 +6,7 @@ import {PrimaryButton} from "./buttons/primary-button";
 import {Header, HeaderType} from "./headers/header/components/Header";
 import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
 import {Panel} from "./panels/panel/components/Panel";
+import {Dropdown} from "./dropdowns/dropdown/components/Dropdown";
 
 const buttonStories = storiesOf("Buttons", module);
 buttonStories.add("primary-button",
@@ -64,6 +65,30 @@ panelStories.add("find pet-friendly places",
                 <Paragraph>{getLoremIpsum()}</Paragraph>
                 <PrimaryButton className="button--stretch">Find</PrimaryButton>
             </Panel>
+        );
+    });
+
+const dropdownStories = storiesOf("Dropdowns", module);
+dropdownStories.add("locations",
+    () => {
+        return (
+            <Dropdown items={[
+                {
+                    key: "1",
+                    name: "Zagreb",
+                },
+                {
+                    key: "2",
+                    name: "Split",
+                },
+                {
+                    key: "3",
+                    name: "Rijeka",
+                },
+            ]} activeItem={{
+                key: "1",
+                name: "Zagreb",
+            }}/>
         );
     });
 
