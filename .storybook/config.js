@@ -10,6 +10,7 @@ import * as Adapter from 'enzyme-adapter-react-16';
 import "./facade";
 import {customTheme} from "./customTheme";
 import {allViewports} from "./viewports/allViewports";
+import {withA11y} from "@storybook/addon-a11y";
 
 function loadStories() {
   require('../components');
@@ -21,6 +22,7 @@ addParameters({
 });
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator(withKnobs);
+addDecorator(withA11y);
 
 configureEnzyme({ adapter: new Adapter() });
 configure(loadStories, module);

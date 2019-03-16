@@ -6,25 +6,14 @@ import {Header} from "../../../headers/header/components/Header";
 import {Panel, Type} from "../../../panels/panel/components/Panel";
 import {Paragraph} from "../../../paragraphs/paragraph/components/Paragraph";
 
-export interface FindPlacesFormProps {}
+export interface FindPlacesFormProps {
+    searchableDropdownObservable: SearchableDropdownObservable;
+}
 export interface FindPlacesFormState {}
 
 export class FindPlacesForm extends React.Component<FindPlacesFormProps, FindPlacesFormState> {
     public render() {
-        const searchableDropdownObservable = new SearchableDropdownObservable([
-            {
-                key: "1",
-                name: "Zagreb",
-            },
-            {
-                key: "2",
-                name: "Split",
-            },
-            {
-                key: "3",
-                name: "Rijeka",
-            },
-        ]);
+        const searchableDropdownObservable = this.props.searchableDropdownObservable;
         return (
             <div className="find-places-form">
                 <Panel type={Type.BOXED} className="panel--margin">

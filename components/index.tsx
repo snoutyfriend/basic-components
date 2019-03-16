@@ -1,4 +1,4 @@
-import {array, text, select, withKnobs} from "@storybook/addon-knobs";
+import {array, select, text, withKnobs} from "@storybook/addon-knobs";
 import {storiesOf} from "@storybook/react";
 import {mount} from "enzyme";
 import * as React from "react";
@@ -14,6 +14,7 @@ import {Panel} from "./panels/panel/components/Panel";
 import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
 import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
 import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
+import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm/models/FindPlacesViewObject";
 
 const buttonStories = storiesOf("basic/Buttons", module);
 buttonStories.add("primary-button",
@@ -107,24 +108,59 @@ iconStories.add("basic",
     () => {
         return (
             <div>
-                <Icon iconName={IconName.MAGNIFIER} />
-                <Icon iconName={IconName.FACEBOOK} />
-                <Icon iconName={IconName.INSTAGRAM} />
+                <Icon iconName={IconName.MAGNIFIER} alt={"Magnifier"} />
+                <Icon iconName={IconName.FACEBOOK}  alt={"Facebook"}/>
+                <Icon iconName={IconName.INSTAGRAM} alt={"Instagra"} />
             </div>
         );
     });
 const snoutyFriendStories = storiesOf("SnoutyFriend/FindPlaces", module);
 snoutyFriendStories.add("Form", () => {
-    return <FindPlacesForm></FindPlacesForm>;
+    const searchableDropdownObservable = new SearchableDropdownObservable([
+        {
+            key: "1",
+            name: "Zagreb",
+        },
+        {
+            key: "2",
+            name: "Split",
+        },
+        {
+            key: "3",
+            name: "Rijeka",
+        },
+    ]);
+    return <FindPlacesForm searchableDropdownObservable={searchableDropdownObservable}/>;
 });
 snoutyFriendStories.add("Header", () => {
+    const viewObject = new FindPlacesViewObject({
+        share: "SHARE",
+        socialLinks: [
+            {
+                link: {
+                    href: "www.facebook.com",
+                    value: "",
+                },
+                alt: "Facebook",
+                iconName: IconName.FACEBOOK,
+            },
+            {
+                link: {
+                    href: "www.instagram.com",
+                    value: "",
+                },
+                alt: "Instagram",
+                iconName: IconName.INSTAGRAM,
+            },
+        ],
+    });
     const label = "Type";
     const values = {
         "STANDARD": FindPlacesHeaderType.DEFAULT,
         "FIXED TOP": FindPlacesHeaderType.FIXED,
     };
     const type = select(label, values, FindPlacesHeaderType.DEFAULT);
-    return <FindPlacesHeader type={type}></FindPlacesHeader>;
+    return <FindPlacesHeader viewObject={viewObject} type={type}/>;
 });
 
 function getHeaderInAllColors(headerType: HeaderType) {
