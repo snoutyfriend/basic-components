@@ -67,4 +67,8 @@ export class SimpleDropdownObservable implements DropdownObservable{
     public getObservableIsOpened(): Subject<boolean> {
         return this.observableIsOpened;
     }
+
+    public getItems(): DropdownItemDetails[] {
+        return this.items;
+    }
 }

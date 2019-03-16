@@ -1,6 +1,7 @@
 export const customTheme = {
     options: {
-        name: 'Snoutyfriend Storybook',
+        brandTitle: 'Snoutyfriend Storybook',
+        brandUrl: 'https://snoutyfriend.com?ref=storybook',
         isFullScreen: false,
         showPanel: true,
         sortStoriesByKind: true,

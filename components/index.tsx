@@ -5,11 +5,13 @@ import {describe, it, specs, test} from "storybook-addon-specifications";
 import "../scss/all.scss";
 import {PrimaryButton} from "./buttons/primary-button";
 import {Dropdown} from "./dropdowns/dropdown/components/Dropdown";
+import {SearchableDropdownObservable} from "./dropdowns/dropdown/observables/SearchableDropdownObservable";
 import {Header, HeaderType} from "./headers/header/components/Header";
 import {Icon} from "./icons/icon/components/Icon";
 import {IconName} from "./icons/icon/components/IconSvgs";
 import {Panel} from "./panels/panel/components/Panel";
 import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
+import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
 
 const buttonStories = storiesOf("Buttons", module);
 buttonStories.add("primary-button",
@@ -74,21 +76,24 @@ panelStories.add("find pet-friendly places",
 const dropdownStories = storiesOf("Dropdowns", module);
 dropdownStories.add("locations",
     () => {
-        return (
-            <Dropdown items={[
-                {
-                    key: "1",
-                    name: "Zagreb",
-                },
-                {
-                    key: "2",
-                    name: "Split",
-                },
-                {
-                    key: "3",
-                    name: "Rijeka",
-                },
-            ]} activeItem={{
+    const searchableDropdownObservable = new SearchableDropdownObservable([
+        {
+            key: "1",
+            name: "Zagreb",
+        },
+        {
+            key: "2",
+            name: "Split",
+        },
+        {
+            key: "3",
+            name: "Rijeka",
+        },
+    ]);
+    return (
+            <Dropdown
+                searchableDropdownObservable={searchableDropdownObservable}
+                activeItem={{
                 key: "1",
                 name: "Zagreb",
             }}/>
@@ -105,12 +110,16 @@ iconStories.add("basic",
             </div>
         );
     });
+const snoutyFriendStories = storiesOf("SnoutyFriend", module);
+snoutyFriendStories.add("Find places form", () => {
+    return <FindPlacesForm></FindPlacesForm>;
+});
 
 function getHeaderInAllColors(headerType: HeaderType) {
     const coloredHeaders = [];
     for (let i = 1; i <= 4; i++) {
         coloredHeaders.push(
-            <Header className={`color color--${i}`} type={headerType}>This is {headerType}</Header>,
+            <Header key={i} className={`color color--${i}`} type={headerType}>This is {headerType}</Header>,
         );
     }
     return coloredHeaders;

@@ -1,0 +1,35 @@
+.dropdown {
+  font-family: $font-family;
+  font-size: 18px;
+  position: relative;
+
+  &--active {
+    border-bottom: 0;
+  }
+
+  &__active-item {
+    border: 1px solid $color1;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: $container-height;
+    padding-left: 30px;
+  }
+
+  &__items {
+    position: absolute;
+    width: 100%;
+    border: 1px solid $dropdown-color;
+    border-top: 0;
+    background-color: white;
+  }
+
+  &__search {
+    width: 100%;
+    font-family: $font-family;
+    font-size: 18px;
+    border: 1px solid $dropdown-color;
+  }
+}

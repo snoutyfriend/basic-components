@@ -1,11 +1,11 @@
 import * as React from "react";
 import {DefaultComponentProps} from "../../../core/interfaces/DefaultComponentProps";
 import {SearchableDropdownObservable} from "../observables/SearchableDropdownObservable";
-import {DropdownItemDetails, SimpleDropdownObservable} from "../observables/SimpleDropdownObservable";
+import {DropdownItemDetails} from "../observables/SimpleDropdownObservable";
 import {DropdownItem} from "./DropdownItem";
 
 export interface DropdownProps extends DefaultComponentProps {
-    items: DropdownItemDetails[];
+    searchableDropdownObservable: SearchableDropdownObservable;
     activeItem: DropdownItemDetails;
 }
 
@@ -22,7 +22,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
         this.filterDropdown = this.filterDropdown.bind(this);
         this.onKeyPress = this.onKeyPress.bind(this);
 
-        this.dropdownObservable = new SearchableDropdownObservable(this.props.items);
+        this.dropdownObservable = this.props.searchableDropdownObservable;
         this.dropdownObservable.getObservableItems().subscribe((items: DropdownItemDetails[]) => {
             this.setState({
                 items,
@@ -44,18 +44,22 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
         this.dropdownObservable.setActiveItem(this.props.activeItem);
         this.setState({
             isOpened: this.dropdownObservable.isOpened(),
-            items: this.props.items,
+            items: this.dropdownObservable.getItems(),
         });
     }
 
     public render() {
         return (
-            <div className={`dropdown ${this.props.className || ""}`}>
+            <div className={`dropdown ${this.props.className || ""} ${this.getActiveStyleClass()}`}>
                 {this.renderSearchInputField()}
                 {this.renderActiveItemContainer()}
                 {this.renderItemsContainer()}
             </div>
         );
+    }
+
+    private getActiveStyleClass(): string {
+        return this.state.isOpened ? "dropdown--active" : "";
     }
 
     private renderItemsContainer() {

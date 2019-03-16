@@ -26,6 +26,14 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         const headerProps = {
             className: `header ${this.props.className || ""}`,
         };
+        const headerElement = this.getHeader(headerProps);
+
+        return (
+            headerElement
+        );
+    }
+
+    public getHeader(headerProps) {
         let headerElement = <h2 {...headerProps}>
             {this.props.children}
         </h2>;
@@ -42,8 +50,6 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
             </h3>;
         });
 
-        return (
-            headerElement
-        );
+        return headerElement;
     }
 }

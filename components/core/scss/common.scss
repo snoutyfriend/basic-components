@@ -47,3 +47,24 @@
     text-transform: uppercase;
   }
 }
+
+.margin {
+  &--bottom-top {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  &--bottom-top-spaced {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+}
+
+.size {
+  &--full {
+    width: 100%;
+  }
+  &--half {
+    width: 50%;
+  }
+}

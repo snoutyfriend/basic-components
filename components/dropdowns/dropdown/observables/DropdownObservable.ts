@@ -8,6 +8,7 @@ export interface DropdownObservable {
     isOpened(): boolean;
     setActiveItem(active: DropdownItemDetails): void;
     setItems(items: DropdownItemDetails[]): void;
+    getItems(): DropdownItemDetails[];
     getObservableItems(): Subject<DropdownItemDetails[]>;
     getObservableActiveItem(): Subject<DropdownItemDetails>;
     getObservableIsOpened(): Subject<boolean>;
