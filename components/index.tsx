@@ -2,11 +2,14 @@ import {storiesOf} from "@storybook/react";
 import {mount} from "enzyme";
 import * as React from "react";
 import {describe, it, specs, test} from "storybook-addon-specifications";
+import "../scss/all.scss";
 import {PrimaryButton} from "./buttons/primary-button";
-import {Header, HeaderType} from "./headers/header/components/Header";
-import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
-import {Panel} from "./panels/panel/components/Panel";
 import {Dropdown} from "./dropdowns/dropdown/components/Dropdown";
+import {Header, HeaderType} from "./headers/header/components/Header";
+import {Icon} from "./icons/icon/components/Icon";
+import {IconName} from "./icons/icon/components/IconSvgs";
+import {Panel} from "./panels/panel/components/Panel";
+import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
 
 const buttonStories = storiesOf("Buttons", module);
 buttonStories.add("primary-button",
@@ -89,6 +92,17 @@ dropdownStories.add("locations",
                 key: "1",
                 name: "Zagreb",
             }}/>
+        );
+    });
+
+const iconStories = storiesOf("Icons", module);
+iconStories.add("basic",
+    () => {
+        return (
+            <div>
+                <Icon iconName={IconName.MAGNIFIER} />
+                <Icon iconName={IconName.ARROW_DOWN} />
+            </div>
         );
     });
 

@@ -1,0 +1,26 @@
+.icon {
+
+  &__arrowDown {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      height: 3px;
+      width: 1px;
+      background-color: black;
+      left: 0;
+      top: 0;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      height: 3px;
+      width: 1px;
+      background-color: black;
+      top: 0;
+      right: 0;
+    }
+  }
+}
