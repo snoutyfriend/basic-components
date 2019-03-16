@@ -1,0 +1,43 @@
+.find-places-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 43px 62px;
+
+  @media only screen and (max-width: 680px) {
+    padding: 10px 10px;
+  }
+
+  &--fixed {
+    -webkit-box-shadow: 0 8px 17px -7px $color6-transparent;
+    -moz-box-shadow: 0 8px 17px -7px $color6-transparent;
+    box-shadow: 0 8px 17px -7px $color6-transparent;
+  }
+
+  &__icon {
+    margin: 0 0 0 12px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__logo {
+
+  }
+
+  &__social {
+
+  }
+
+  &__share-text {
+    font-family: $font-family;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.1px;
+    color: #23306b;
+  }
+}

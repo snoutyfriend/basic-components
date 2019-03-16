@@ -4,13 +4,9 @@
 
   &--box {
     border: solid 1px $color6;
-    //-webkit-box-shadow: 6px 8px 27px -1px $color6-transparent;
-    //-moz-box-shadow: 6px 8px 27px -1px $color6-transparent;
-    //box-shadow: 6px 8px 27px -1px $color6-transparent;
-
-    -webkit-box-shadow: 12px 14px 22px -10px rgba(0,0,0,0.12);
-    -moz-box-shadow: 12px 14px 22px -10px rgba(0,0,0,0.12);
-    box-shadow: 12px 14px 22px -10px rgba(0,0,0,0.12);
+    -webkit-box-shadow: 12px 14px 22px -10px $color6-transparent;
+    -moz-box-shadow: 12px 14px 22px -10px $color6-transparent;
+    box-shadow: 12px 14px 22px -10px $color6-transparent;
   }
 
   &--margin {

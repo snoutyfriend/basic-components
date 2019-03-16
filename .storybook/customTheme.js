@@ -1,3 +1,5 @@
+import {allViewports} from "./viewports/allViewports";
+
 export const customTheme = {
     options: {
         brandTitle: 'Snoutyfriend Storybook',
@@ -9,4 +11,5 @@ export const customTheme = {
         addonPanelInRight: true,
         // more configuration here
     },
+    viewport: { viewports: allViewports }
 };

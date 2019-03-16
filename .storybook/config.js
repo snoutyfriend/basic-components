@@ -9,16 +9,18 @@ import * as Adapter from 'enzyme-adapter-react-16';
 
 import "./facade";
 import {customTheme} from "./customTheme";
+import {allViewports} from "./viewports/allViewports";
 
 function loadStories() {
   require('../components');
 }
 
 addParameters(customTheme);
-
+addParameters({
+  viewport: { viewports: allViewports },
+});
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator(withKnobs);
-addDecorator(withInfo);
 
 configureEnzyme({ adapter: new Adapter() });
 configure(loadStories, module);

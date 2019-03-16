@@ -1,25 +1,27 @@
+import {array, text, select, withKnobs} from "@storybook/addon-knobs";
 import {storiesOf} from "@storybook/react";
 import {mount} from "enzyme";
 import * as React from "react";
-import {describe, it, specs, test} from "storybook-addon-specifications";
+
 import "../scss/all.scss";
 import {PrimaryButton} from "./buttons/primary-button";
 import {Dropdown} from "./dropdowns/dropdown/components/Dropdown";
 import {SearchableDropdownObservable} from "./dropdowns/dropdown/observables/SearchableDropdownObservable";
 import {Header, HeaderType} from "./headers/header/components/Header";
 import {Icon} from "./icons/icon/components/Icon";
-import {IconName} from "./icons/icon/components/IconSvgs";
+import {IconName} from "./icons/icon/components/IconContent";
 import {Panel} from "./panels/panel/components/Panel";
 import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
 import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
+import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
 
-const buttonStories = storiesOf("Buttons", module);
+const buttonStories = storiesOf("basic/Buttons", module);
 buttonStories.add("primary-button",
     () => {
         return <PrimaryButton className={"button--stretch"}>SEARCH</PrimaryButton>;
     });
 
-const headerStories = storiesOf("Headers", module);
+const headerStories = storiesOf("basic/Headers", module);
 headerStories.add("h1",
     () => {
         return (
@@ -50,7 +52,7 @@ headerStories.add("h3",
             </div>
         );
     });
-const paragprahStories = storiesOf("Paragraphs", module);
+const paragprahStories = storiesOf("basic/Paragraphs", module);
 paragprahStories.add("normal",
     () => {
         return (
@@ -61,7 +63,7 @@ paragprahStories.add("normal",
             </div>
         );
     });
-const panelStories = storiesOf("Panels", module);
+const panelStories = storiesOf("basic/Panels", module);
 panelStories.add("find pet-friendly places",
     () => {
         return (
@@ -73,7 +75,7 @@ panelStories.add("find pet-friendly places",
         );
     });
 
-const dropdownStories = storiesOf("Dropdowns", module);
+const dropdownStories = storiesOf("basic/Dropdowns", module);
 dropdownStories.add("locations",
     () => {
     const searchableDropdownObservable = new SearchableDropdownObservable([
@@ -100,19 +102,29 @@ dropdownStories.add("locations",
         );
     });
 
-const iconStories = storiesOf("Icons", module);
+const iconStories = storiesOf("basic/Icons", module);
 iconStories.add("basic",
     () => {
         return (
             <div>
                 <Icon iconName={IconName.MAGNIFIER} />
-                <Icon iconName={IconName.ARROW_DOWN} />
+                <Icon iconName={IconName.FACEBOOK} />
+                <Icon iconName={IconName.INSTAGRAM} />
             </div>
         );
     });
-const snoutyFriendStories = storiesOf("SnoutyFriend", module);
-snoutyFriendStories.add("Find places form", () => {
+const snoutyFriendStories = storiesOf("SnoutyFriend/FindPlaces", module);
+snoutyFriendStories.add("Form", () => {
     return <FindPlacesForm></FindPlacesForm>;
+});
+snoutyFriendStories.add("Header", () => {
+    const label = "Type";
+    const values = {
+        "STANDARD": FindPlacesHeaderType.DEFAULT,
+        "FIXED TOP": FindPlacesHeaderType.FIXED,
+    };
+    const type = select(label, values, FindPlacesHeaderType.DEFAULT);
+    return <FindPlacesHeader type={type}></FindPlacesHeader>;
 });
 
 function getHeaderInAllColors(headerType: HeaderType) {
