@@ -12,9 +12,9 @@ export class Icon extends React.Component<IconProps, {}> {
     public render() {
         const { iconName, className, alt } = this.props;
         return (
-            <span className={`icon ${className || ""}`}>
+            <i className={`icon ${className || ""}`}>
                 <img src={IconContent.getContent(iconName)} alt={alt}/>
-            </span>
+            </i>
         );
     }
 }

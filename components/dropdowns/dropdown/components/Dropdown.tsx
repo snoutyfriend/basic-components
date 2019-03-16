@@ -1,5 +1,7 @@
 import * as React from "react";
 import {DefaultComponentProps} from "../../../core/interfaces/DefaultComponentProps";
+import {Icon} from "../../../icons/icon/components/Icon";
+import {IconName} from "../../../icons/icon/components/IconContent";
 import {SearchableDropdownObservable} from "../observables/SearchableDropdownObservable";
 import {DropdownItemDetails} from "../observables/SimpleDropdownObservable";
 import {DropdownItem} from "./DropdownItem";
@@ -54,6 +56,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                 {this.renderSearchInputField()}
                 {this.renderActiveItemContainer()}
                 {this.renderItemsContainer()}
+                <Icon iconName={IconName.ARROW_DOWN} alt="Arrow down" className="dropdown__arrow"/>
             </div>
         );
     }

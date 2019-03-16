@@ -1,10 +1,30 @@
 .dropdown {
+  $root: &;
+
   font-family: $font-family;
   font-size: 18px;
   position: relative;
 
   &--active {
     border-bottom: 0;
+
+    #{$root}__arrow {
+      transform: rotate(180deg);
+      transform-origin: center;
+    }
+  }
+
+  &__arrow {
+    transition: transform 0.3s;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    margin-top: -9px;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   &__active-item {
