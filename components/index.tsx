@@ -163,7 +163,12 @@ snoutyFriendStories.add("Header", () => {
         "FIXED TOP": FindPlacesHeaderType.FIXED,
     };
     const type = select(label, values, FindPlacesHeaderType.DEFAULT);
-    return <FindPlacesHeader viewObject={viewObject} type={type}/>;
+    return (
+        <div>
+            <div className="bg bg--fixed-fill bg--gradient-1"/>
+            <FindPlacesHeader viewObject={viewObject} type={type}/>
+        </div>
+    );
 });
 
 snoutyFriendStories.add("Description Board", () => {

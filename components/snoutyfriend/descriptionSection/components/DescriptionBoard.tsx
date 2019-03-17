@@ -31,12 +31,4 @@ export class DescriptionBoard extends React.Component<DescriptionBoardProps, Des
             </div>
         );
     }
-
-    public getLinkComponent(socialLink: SocialLink) {
-        return (
-            <a href={socialLink.link.href}>
-                <Icon iconName={socialLink.iconName} alt={socialLink.alt} className="find-places-header__icon"/>
-            </a>
-        );
-    }
 }

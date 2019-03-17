@@ -10,11 +10,11 @@ interface DropdownItemState {
 export class DropdownItem extends React.Component<DropdownItemProps, DropdownItemState> {
     public render() {
         return (
-            <div
+            <button
                 onClick={this.props.onClick}
-                className={`dropdown__item ${this.props.className || ""}`}>
+                className={`button--no-style dropdown__item dropdown__box ${this.props.className || ""}`}>
                 {this.props.children}
-            </div>
+            </button>
         );
     }
 }

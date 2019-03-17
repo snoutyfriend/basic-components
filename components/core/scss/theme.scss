@@ -8,8 +8,10 @@ $color5: #ffffff;
 $color6: #d8d8d8;
 $color6-transparent: rgba(0,0,0,0.12);
 
+$gradient1: linear-gradient(to bottom, #f5f6f8, #fefefe);
 //
 $dropdown-color: $color6;
 
 //container
 $container-height: 74px;
+$background-default: $gradient1;

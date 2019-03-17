@@ -98,7 +98,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
 
         return <input
             autoFocus
-            className={`dropdown__item dropdown__search`}
+            className={`dropdown__box dropdown__search`}
             onChange={this.filterDropdown}
             onKeyPress={this.onKeyPress}
         />;
@@ -114,10 +114,8 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                 this.dropdownObservable.setSearchText("");
                 this.dropdownObservable.toggle();
             }}
-            className={`dropdown__active-item`}>
-            <DropdownItem>
-                {this.state.activeItem.name}
-            </DropdownItem>
+            className={`dropdown__active-item dropdown__box`}>
+            {this.state.activeItem.name}
         </div>;
     }
 

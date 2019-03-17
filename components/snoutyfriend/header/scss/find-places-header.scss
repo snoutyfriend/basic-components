@@ -2,15 +2,22 @@
   display: flex;
   justify-content: space-between;
   padding: 43px 62px 23px 62px;
+  box-shadow: 0 0 0 rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
 
   @media only screen and (max-width: 680px) {
     padding: 10px 10px;
+  }
+
+  &--default {
+    background-color: $background-default;
   }
 
   &--fixed {
     -webkit-box-shadow: 0 8px 17px -7px $color6-transparent;
     -moz-box-shadow: 0 8px 17px -7px $color6-transparent;
     box-shadow: 0 8px 17px -7px $color6-transparent;
+    background-color: $color5;
   }
 
   &__icon {

@@ -27,15 +27,26 @@
     }
   }
 
+  &__box {
+    height: $container-height;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+  }
+
   &__active-item {
     border: 1px solid $dropdown-color;
   }
 
   &__item {
-    display: flex;
-    align-items: center;
-    height: $container-height;
-    padding-left: 30px;
+    transition: transform 0.3s;
+    will-change: translateX;
+
+    &:hover {
+      transform: translateX(20px);
+    }
   }
 
   &__items {
@@ -44,6 +55,7 @@
     border: 1px solid $dropdown-color;
     border-top: 0;
     background-color: white;
+    max-height: 222px;
   }
 
   &__search {

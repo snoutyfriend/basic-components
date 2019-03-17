@@ -14,12 +14,13 @@ export enum FindPlacesHeaderType {
     DEFAULT = "",
     FIXED = "fixed",
 }
+
 export class FindPlacesHeader extends React.Component<FindPlacesHeaderProps, FindPlacesHeaderState> {
     public render() {
         const viewObject = this.props.viewObject;
 
         return (
-            <div className={`find-places-header ${this.getTypeClass(this.props.type)}`}>
+            <div className={`find-places-header find-places-header--default ${this.getTypeClass(this.props.type)}`}>
                 <div className="find-places-header__logo">
                     <img src={logo} alt={"alt"} />
                 </div>

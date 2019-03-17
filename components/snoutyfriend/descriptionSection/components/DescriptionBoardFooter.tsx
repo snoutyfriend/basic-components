@@ -34,17 +34,16 @@ export class DescriptionBoardFooter extends React.Component<DescriptionBoardFoot
         const indexToPlaceSeparatorAnd = links.length - 2;
         return links.map((link, index) => {
             if (index === indexToPlaceSeparatorAnd) {
-                return this.getLinkComponent(link,
-                    ` ${andSeparator} `);
+                return this.getLinkComponent(link, `${index}`, ` ${andSeparator} `);
             }
 
-            return this.getLinkComponent(link);
+            return this.getLinkComponent(link, `${index}`);
         });
     }
 
-    public getLinkComponent(link: Link, separator: string = "") {
+    public getLinkComponent(link: Link, key: string, separator: string = "") {
         return (
-            <span>
+            <span key={key}>
                 <a href={link.href}>
                 {link.value}
                 </a>
