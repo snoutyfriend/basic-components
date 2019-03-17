@@ -12,9 +12,12 @@ import {Icon} from "./icons/icon/components/Icon";
 import {IconName} from "./icons/icon/components/IconContent";
 import {Panel} from "./panels/panel/components/Panel";
 import {Paragraph} from "./paragraphs/paragraph/components/Paragraph";
+import {DescriptionBoard} from "./snoutyfriend/descriptionSection/components/DescriptionBoard";
+import {DescriptionBoardFooterViewObject} from "./snoutyfriend/descriptionSection/models/DescriptionBoardFooterViewObject";
+import {DescriptionBoardViewObject} from "./snoutyfriend/descriptionSection/models/DescriptionBoardViewObject";
 import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
-import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
 import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm/models/FindPlacesViewObject";
+import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
 
 const buttonStories = storiesOf("basic/Buttons", module);
 buttonStories.add("primary-button",
@@ -161,6 +164,32 @@ snoutyFriendStories.add("Header", () => {
     };
     const type = select(label, values, FindPlacesHeaderType.DEFAULT);
     return <FindPlacesHeader viewObject={viewObject} type={type}/>;
+});
+
+snoutyFriendStories.add("Description Board", () => {
+    const footerViewObject = new DescriptionBoardFooterViewObject({
+        title: "Pridruzite se Snoutyfriend zajednici na",
+        links: [
+            {
+                href: "",
+                value: "Facebooku",
+            },
+            {
+                href: "",
+                value: "Instagramu",
+            },
+        ],
+        description: "Saznajte puno korisnih informacija i saljite nam vasa misljenja i prijedloge.",
+        andSeparator: "i",
+    });
+    const descriptionBoardViewObject = new DescriptionBoardViewObject({
+        title: "Snoutyfriend je drustvena mreza za ponosne vlasnike kucnih ljubimaca i sve ljubitelje zivotinja.",
+        description: `Trenutno kod nas mozete pronaci pet-friendly kafice i restorane u Hrvatskoj.
+Istrazujemo koji su najbolji veterinari i saloni za ljubimce po gradovima i uskoro sirimo sadrzaj stranice.
+Stranica je besplatna i uveseljavat ce sve vlasnicike ljubimaca i ljubitelje zivotinja!`,
+        footer: footerViewObject,
+    });
+    return <DescriptionBoard viewObject={descriptionBoardViewObject}/>;
 });
 
 function getHeaderInAllColors(headerType: HeaderType) {

@@ -12,6 +12,14 @@
   cursor: pointer;
   height: $container-height;
 
+  &--no-style {
+    height: auto;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+  }
+
   &--stretch {
     width: 100%;
   }

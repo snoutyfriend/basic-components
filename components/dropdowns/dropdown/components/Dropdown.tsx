@@ -56,7 +56,15 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                 {this.renderSearchInputField()}
                 {this.renderActiveItemContainer()}
                 {this.renderItemsContainer()}
-                <Icon iconName={IconName.ARROW_DOWN} alt="Arrow down" className="dropdown__arrow"/>
+                <button
+                    className="button--no-style dropdown__arrow"
+                    onClick={() => {
+                        this.toggleDropdown();
+                    }}>
+                    <Icon
+                        iconName={IconName.ARROW_DOWN}
+                        alt="Arrow down"/>
+                </button>
             </div>
         );
     }
@@ -133,5 +141,13 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
         }
 
         this.setActiveItem(this.state.items[0]);
+    }
+
+    private toggleDropdown() {
+        if (this.dropdownObservable.isOpened()) {
+            return this.dropdownObservable.close();
+        }
+
+        this.dropdownObservable.open();
     }
 }
