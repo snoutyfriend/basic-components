@@ -65,17 +65,16 @@
     "storybook-addon-specifications": "^2.1.2"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./jest.setup.js",
+    "setupFilesAfterEnv": ["./jest.setup.js"],
     "automock": false,
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(ts|tsx)": "ts-jest"
     },
-    "mapCoverage": true,
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/lib/"
     ],
-    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx)$",
+    "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
