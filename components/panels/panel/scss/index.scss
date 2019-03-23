@@ -1,0 +1,15 @@
+.panel {
+  background-color: $color5;
+  padding: 45px 45px;
+
+  &--box {
+    border: solid 1px $color6;
+    -webkit-box-shadow: 12px 14px 22px -10px $color6-transparent;
+    -moz-box-shadow: 12px 14px 22px -10px $color6-transparent;
+    box-shadow: 12px 14px 22px -10px $color6-transparent;
+  }
+
+  &--margin {
+    margin: 15px;
+  }
+}

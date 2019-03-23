@@ -1,17 +1,18 @@
-// load the default config generator.
-// const genDefaultConfig = require('@storybook/react/dist/server/config/defaults/webpack.config.js');
-const path = require('path');
-module.exports = (baseConfig, env, defaultConfig) => {
-    // Extend defaultConfig as you need.
-console.log(baseConfig);
-    // For example, add typescript loader:
-    baseConfig.module.rules.push({
+module.exports = ({ config, mode }) => {
+    config.module.rules.push({
         test: /\.(ts|tsx)$/,
-        loader: require.resolve("ts-loader")
+        use: [
+            {
+                loader: require.resolve('awesome-typescript-loader'),
+            },
+            {
+                loader: require.resolve('react-docgen-typescript-loader'),
+            },
+        ],
     });
-    baseConfig.resolve.extensions.push(".ts", ".tsx", '.css', '.scss');
+    config.resolve.extensions.push('.ts', '.tsx');
 
-    baseConfig.module.rules.push(
+    config.module.rules.push(
         {
             test: /\.scss$/,
             use: [
@@ -32,22 +33,9 @@ console.log(baseConfig);
         },
     );
 
-    baseConfig.resolve.alias = {
-        // "react": "preact-compat",
-        // "react-dom": "preact-compat",
-        // Not necessary unless you consume a module using `createClass`
-        // "create-react-class": "preact-compat/lib/create-react-class",
-    };
-    baseConfig.node = {
+    config.node = {
         fs: "empty"
     };
-    // defaultConfig.externals = {
-    //     'jsdom': 'window',
-    //         'cheerio': 'window',
-    //         'react/lib/ExecutionEnvironment': true,
-    //         'react/lib/ReactContext': 'window',
-    //         'react/addons': true,
-    // };
 
-    return baseConfig;
+    return config;
 };

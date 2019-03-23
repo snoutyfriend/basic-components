@@ -1,6 +1,14 @@
 @import "../components/core/scss/theme";
 @import "../components/core/scss/common";
-@import "../components/buttons/button/scss";
-@import "../components/buttons/primary-button/scss";
-@import "../components/headers/header/scss";
-@import "../components/paragraphs/paragraph/scss";
+@import "../components/core/scss/reset";
+@import "../components/buttons/button/scss/index";
+@import "../components/buttons/primary-button/scss/index";
+@import "../components/headers/header/scss/index";
+@import "../components/paragraphs/paragraph/scss/index";
+@import "../components/panels/panel/scss/index";
+@import "../components/dropdowns/dropdown/scss/index";
+@import "../components/icons/icon/scss/index";
+
+@import "../components/snoutyfriend/findPlacesForm/scss/index";
+@import "../components/snoutyfriend/header/scss/index";
+@import "../components/snoutyfriend/descriptionSection/scss/index";

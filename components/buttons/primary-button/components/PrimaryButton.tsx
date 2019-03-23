@@ -6,7 +6,7 @@ import {Button, ButtonState} from "../../button";
 export class PrimaryButton extends React.Component<DefaultComponentProps, ButtonState> {
     public render() {
         return (
-            <Button className={this.props.className}>
+            <Button className={`${this.props.className} primary-button text text--uppercase`}>
                 {this.props.children}
             </Button>
         );
