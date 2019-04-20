@@ -1,6 +1,6 @@
 import * as React from "react";
 import {PrimaryButton} from "../../../basic/buttons/primary-button";
-import {Dropdown} from "../../../basic/dropdowns/dropdown/components/Dropdown";
+import {SearchableDropdown} from "../../../basic/dropdowns/dropdown/components/SearchableDropdown";
 import {SearchableDropdownObservable} from "../../../basic/dropdowns/dropdown/observables/SearchableDropdownObservable";
 import {Header} from "../../../basic/headers/header/components/Header";
 import {Panel, Type} from "../../../basic/panels/panel/components/Panel";
@@ -24,7 +24,7 @@ export class FindPlacesForm extends React.Component<FindPlacesFormProps, FindPla
                         </Paragraph>
                     </div>
                     <div className="margin--bottom-top-spaced">
-                        <Dropdown searchableDropdownObservable={searchableDropdownObservable} activeItem={{
+                        <SearchableDropdown searchableDropdownObservable={searchableDropdownObservable} activeItem={{
                             key: "1",
                             name: "Zagreb",
                         }}/>

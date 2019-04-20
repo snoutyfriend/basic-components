@@ -6,6 +6,7 @@ export enum HeaderType {
     h1 = "h1",
     h2 = "h2",
     h3 = "h3",
+    h4 = "h4",
 }
 export interface HeaderProps extends DefaultComponentProps {
     type?: HeaderType;
@@ -48,6 +49,12 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
             headerElement = <h3 {...headerProps}>
                 {this.props.children}
             </h3>;
+        });
+
+        Statement.runIfTrue(this.type === HeaderType.h4, () => {
+            headerElement = <h4 {...headerProps}>
+                {this.props.children}
+            </h4>;
         });
 
         return headerElement;

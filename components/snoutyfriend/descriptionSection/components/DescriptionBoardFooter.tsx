@@ -1,7 +1,7 @@
 import * as React from "react";
-import {Link} from "../../../core/interfaces/Link";
 import {Header, HeaderType} from "../../../basic/headers/header/components/Header";
 import {Paragraph} from "../../../basic/paragraphs/paragraph/components/Paragraph";
+import {Link} from "../../../core/interfaces/Link";
 import {DescriptionBoardFooterViewObject} from "../models/DescriptionBoardFooterViewObject";
 
 export interface DescriptionBoardFooterProps {

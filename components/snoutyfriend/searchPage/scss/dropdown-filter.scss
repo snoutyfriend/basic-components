@@ -1,0 +1,15 @@
+.dropdown-filter {
+  display: flex;
+  padding: 25px 0;
+
+  &__label {
+    flex-basis: 10%;
+    min-width: 10%;
+    align-self: center;
+  }
+
+  .dropdown {
+    flex-basis: 100%;
+    margin-left: 31px;
+  }
+}

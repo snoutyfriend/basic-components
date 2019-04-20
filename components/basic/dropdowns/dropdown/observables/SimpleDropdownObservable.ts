@@ -6,7 +6,7 @@ export interface DropdownItemDetails {
     name: string;
 }
 
-export class SimpleDropdownObservable implements DropdownObservable{
+export class SimpleDropdownObservable implements DropdownObservable {
     private observableItems: Subject<DropdownItemDetails[]> = new Subject();
     private observableActiveItem: Subject<DropdownItemDetails> = new Subject();
     private observableIsOpened: Subject<boolean> = new Subject();
@@ -70,5 +70,9 @@ export class SimpleDropdownObservable implements DropdownObservable{
 
     public getItems(): DropdownItemDetails[] {
         return this.items;
+    }
+
+    public getActiveItem(): DropdownItemDetails {
+        return this.activeItem;
     }
 }

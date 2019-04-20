@@ -69,6 +69,10 @@ export class SearchableDropdownObservable implements DropdownObservable {
         return this.allItems;
     }
 
+    public getActiveItem(): DropdownItemDetails {
+        return this.simpleDropdownObservable.getActiveItem();
+    }
+
     private getFilteredItemsByName(text: string) {
         return this.allItems.filter((item: DropdownItemDetails) => {
             return RegExp(`${text.toLowerCase()}*`).test(item.name.toLowerCase());

@@ -2,29 +2,28 @@ import * as React from "react";
 import {DefaultComponentProps} from "../../../../core/interfaces/DefaultComponentProps";
 import {Icon} from "../../../icons/icon/components/Icon";
 import {IconName} from "../../../icons/icon/components/IconContent";
-import {SearchableDropdownObservable} from "../observables/SearchableDropdownObservable";
+import {DropdownObservable} from "../observables/DropdownObservable";
 import {DropdownItemDetails} from "../observables/SimpleDropdownObservable";
 import {DropdownItem} from "./DropdownItem";
 
-export interface DropdownProps extends DefaultComponentProps {
-    searchableDropdownObservable: SearchableDropdownObservable;
-    activeItem: DropdownItemDetails;
+export interface BasicDropdownProps extends DefaultComponentProps {
+    dropdownObservable: DropdownObservable;
+    activeItem?: DropdownItemDetails;
 }
 
-export interface DropdownState {
+export interface BasicDropdownState {
     items: DropdownItemDetails[];
     activeItem: DropdownItemDetails;
     isOpened: boolean;
 }
 
-export class Dropdown extends React.Component<DropdownProps, DropdownState> {
-    private dropdownObservable: SearchableDropdownObservable;
+export class BasicDropdown extends React.Component<BasicDropdownProps, BasicDropdownState> {
+    private dropdownObservable: DropdownObservable;
 
     public componentWillMount(): void {
-        this.filterDropdown = this.filterDropdown.bind(this);
         this.onKeyPress = this.onKeyPress.bind(this);
 
-        this.dropdownObservable = this.props.searchableDropdownObservable;
+        this.dropdownObservable = this.props.dropdownObservable;
         this.dropdownObservable.getObservableItems().subscribe((items: DropdownItemDetails[]) => {
             this.setState({
                 items,
@@ -43,7 +42,14 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
             });
         });
 
-        this.dropdownObservable.setActiveItem(this.props.activeItem);
+        if (this.props.activeItem !== undefined) {
+            this.dropdownObservable.setActiveItem(this.props.activeItem);
+        } else {
+            this.setState({
+                activeItem: this.dropdownObservable.getActiveItem(),
+            });
+        }
+
         this.setState({
             isOpened: this.dropdownObservable.isOpened(),
             items: this.dropdownObservable.getItems(),
@@ -53,7 +59,6 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
     public render() {
         return (
             <div className={`dropdown ${this.props.className || ""} ${this.getActiveStyleClass()}`}>
-                {this.renderSearchInputField()}
                 {this.renderActiveItemContainer()}
                 {this.renderItemsContainer()}
                 <button
@@ -91,27 +96,9 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
         </div>;
     }
 
-    private renderSearchInputField() {
-        if (this.state.isOpened === false) {
-            return "";
-        }
-
-        return <input
-            autoFocus
-            className={`dropdown__box dropdown__search`}
-            onChange={this.filterDropdown}
-            onKeyPress={this.onKeyPress}
-        />;
-    }
-
     private renderActiveItemContainer() {
-        if (this.state.isOpened === true) {
-            return "";
-        }
-
         return <div
             onClick={() => {
-                this.dropdownObservable.setSearchText("");
                 this.dropdownObservable.toggle();
             }}
             className={`dropdown__active-item dropdown__box`}>
@@ -122,11 +109,6 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
     private setActiveItem(dropdownItemDetails: DropdownItemDetails) {
         this.dropdownObservable.setActiveItem(dropdownItemDetails);
         this.dropdownObservable.close();
-    }
-
-    private filterDropdown(event) {
-        const searchText = event.target.value;
-        this.dropdownObservable.setSearchText(searchText);
     }
 
     private onKeyPress(e) {

@@ -5,7 +5,7 @@ import * as React from "react";
 
 import "../scss/all.scss";
 import {PrimaryButton} from "./basic/buttons/primary-button";
-import {Dropdown} from "./basic/dropdowns/dropdown/components/Dropdown";
+import {BasicDropdown} from "./basic/dropdowns/dropdown/components/BasicDropdown";
 import {SearchableDropdownObservable} from "./basic/dropdowns/dropdown/observables/SearchableDropdownObservable";
 import {Header, HeaderType} from "./basic/headers/header/components/Header";
 import {Icon} from "./basic/icons/icon/components/Icon";
@@ -18,6 +18,11 @@ import {DescriptionBoardViewObject} from "./snoutyfriend/descriptionSection/mode
 import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
 import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm/models/FindPlacesViewObject";
 import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
+import {FilterSectionViewObject} from "./snoutyfriend/searchPage/models/FilterSectionViewObject";
+import {SimpleDropdownObservable} from "./basic/dropdowns/dropdown/observables/SimpleDropdownObservable";
+import {DropdownFilterModel} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
+import {FiltersSection} from "./snoutyfriend/searchPage/components/FiltersSection";
+import {SearchableDropdown} from "./basic/dropdowns/dropdown/components/SearchableDropdown";
 
 const buttonStories = storiesOf("basic/Buttons", module);
 buttonStories.add("primary-button",
@@ -51,6 +56,16 @@ headerStories.add("h3",
         return (
             <div>
                 {getHeaderInAllColors(HeaderType.h3).map((coloredHeader) => {
+                    return coloredHeader;
+                })}
+            </div>
+        );
+    });
+headerStories.add("h4",
+    () => {
+        return (
+            <div>
+                {getHeaderInAllColors(HeaderType.h4).map((coloredHeader) => {
                     return coloredHeader;
                 })}
             </div>
@@ -97,9 +112,9 @@ dropdownStories.add("locations",
         },
     ]);
     return (
-            <Dropdown
-                searchableDropdownObservable={searchableDropdownObservable}
-                activeItem={{
+        <SearchableDropdown
+            searchableDropdownObservable={searchableDropdownObservable}
+            activeItem={{
                 key: "1",
                 name: "Zagreb",
             }}/>
@@ -195,6 +210,44 @@ Stranica je besplatna i uveseljavat ce sve vlasnicike ljubimaca i ljubitelje ziv
         footer: footerViewObject,
     });
     return <DescriptionBoard viewObject={descriptionBoardViewObject}/>;
+});
+
+snoutyFriendStories.add("Filter Section", () => {
+    const filterSectionViewObject = new FilterSectionViewObject({
+        header: "FILTERI",
+        description: "Ovdje upravljate sadrzajem koji se prikazuje s lijeve strane. Isprobajte kako rade filteri pretrazivanja: \n" +
+            "\n",
+        filters: [
+            new DropdownFilterModel({
+                label: "Grad:",
+                dropdownObservable: new SimpleDropdownObservable([
+                    {
+                        key: "1",
+                        name: "Zagreb",
+                    },
+                    {
+                        key: "2",
+                        name: "Split",
+                    },
+                ]),
+            }),
+            new DropdownFilterModel({
+                label: "Tip:",
+                dropdownObservable: new SimpleDropdownObservable([
+                    {
+                        key: "1",
+                        name: "Kafic",
+                    },
+                    {
+                        key: "2",
+                        name: "Restoran",
+                    },
+                ]),
+            }),
+        ],
+    });
+
+    return <FiltersSection viewObject={filterSectionViewObject} />;
 });
 
 function getHeaderInAllColors(headerType: HeaderType) {
