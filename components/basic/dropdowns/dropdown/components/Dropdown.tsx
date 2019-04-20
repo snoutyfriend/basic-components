@@ -1,5 +1,5 @@
 import * as React from "react";
-import {DefaultComponentProps} from "../../../core/interfaces/DefaultComponentProps";
+import {DefaultComponentProps} from "../../../../core/interfaces/DefaultComponentProps";
 import {Icon} from "../../../icons/icon/components/Icon";
 import {IconName} from "../../../icons/icon/components/IconContent";
 import {SearchableDropdownObservable} from "../observables/SearchableDropdownObservable";

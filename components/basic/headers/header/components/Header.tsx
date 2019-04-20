@@ -1,6 +1,6 @@
 import * as React from "react";
-import {DefaultComponentProps} from "../../../core/interfaces/DefaultComponentProps";
-import {Statement} from "../../../core/Statement";
+import {DefaultComponentProps} from "../../../../core/interfaces/DefaultComponentProps";
+import {Statement} from "../../../../core/Statement";
 
 export enum HeaderType {
     h1 = "h1",

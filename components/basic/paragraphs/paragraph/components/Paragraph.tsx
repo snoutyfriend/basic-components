@@ -1,5 +1,5 @@
 import * as React from "react";
-import {DefaultComponentProps} from "../../../core/interfaces/DefaultComponentProps";
+import {DefaultComponentProps} from "../../../../core/interfaces/DefaultComponentProps";
 
 interface ParagraphState {
 }

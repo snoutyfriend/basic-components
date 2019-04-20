@@ -1,10 +1,10 @@
 import * as React from "react";
-import {PrimaryButton} from "../../../buttons/primary-button";
-import {Dropdown} from "../../../dropdowns/dropdown/components/Dropdown";
-import {SearchableDropdownObservable} from "../../../dropdowns/dropdown/observables/SearchableDropdownObservable";
-import {Header} from "../../../headers/header/components/Header";
-import {Panel, Type} from "../../../panels/panel/components/Panel";
-import {Paragraph} from "../../../paragraphs/paragraph/components/Paragraph";
+import {PrimaryButton} from "../../../basic/buttons/primary-button";
+import {Dropdown} from "../../../basic/dropdowns/dropdown/components/Dropdown";
+import {SearchableDropdownObservable} from "../../../basic/dropdowns/dropdown/observables/SearchableDropdownObservable";
+import {Header} from "../../../basic/headers/header/components/Header";
+import {Panel, Type} from "../../../basic/panels/panel/components/Panel";
+import {Paragraph} from "../../../basic/paragraphs/paragraph/components/Paragraph";
 
 export interface FindPlacesFormProps {
     searchableDropdownObservable: SearchableDropdownObservable;

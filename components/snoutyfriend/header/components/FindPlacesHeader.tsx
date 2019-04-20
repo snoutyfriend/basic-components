@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as logo from "../../../core/images/logo-blue.svg";
 import {SocialLink} from "../../../core/interfaces/SocialLink";
-import {Icon} from "../../../icons/icon/components/Icon";
+import {Icon} from "../../../basic/icons/icon/components/Icon";
 import {FindPlacesViewObject} from "../../findPlacesForm/models/FindPlacesViewObject";
 
 export interface FindPlacesHeaderProps {

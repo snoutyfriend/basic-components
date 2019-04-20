@@ -1,4 +1,4 @@
-import {IconName} from "../../icons/icon/components/IconContent";
+import {IconName} from "../../basic/icons/icon/components/IconContent";
 import {Link} from "./Link";
 
 export interface SocialLink {
