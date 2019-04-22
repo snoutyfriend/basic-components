@@ -1,8 +1,12 @@
 {
-  "name": "basic-components",
+  "name": "@snoutyfriend/storybook",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
   "scripts": {
     "compile": "tsc",
     "test": "jest",
@@ -83,8 +87,5 @@
       "js",
       "json"
     ]
-  },
-  "types": [
-    "jest"
-  ]
+  }
 }

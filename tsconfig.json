@@ -6,10 +6,11 @@
     "noImplicitAny": false,
     "module": "commonjs",
     "experimentalDecorators": true,
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "react",
 //    "jsxFactory": "h",
     "lib": ["es6", "es7", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true
   }
 }

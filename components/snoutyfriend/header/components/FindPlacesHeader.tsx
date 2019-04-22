@@ -1,12 +1,12 @@
 import * as React from "react";
-import * as logo from "../../../core/images/logo-blue.svg";
+import {FindPlacesHeaderViewObject} from "..";
+import * as logo from "../../../../static/images/icons/logo-blue.svg";
+import {Icon} from "../../../basic";
 import {SocialLink} from "../../../core/interfaces/SocialLink";
-import {Icon} from "../../../basic/icons/icon/components/Icon";
-import {FindPlacesViewObject} from "../../findPlacesForm/models/FindPlacesViewObject";
 
 export interface FindPlacesHeaderProps {
     type?: FindPlacesHeaderType;
-    viewObject: FindPlacesViewObject;
+    viewObject: FindPlacesHeaderViewObject;
 }
 export interface FindPlacesHeaderState {}
 

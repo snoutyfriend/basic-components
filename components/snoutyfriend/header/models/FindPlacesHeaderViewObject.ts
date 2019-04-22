@@ -5,7 +5,7 @@ export interface FindPlacesViewObjectProps {
     socialLinks: SocialLink[];
 }
 
-export class FindPlacesViewObject implements FindPlacesViewObjectProps {
+export class FindPlacesHeaderViewObject implements FindPlacesViewObjectProps {
     public share: string;
     public socialLinks: SocialLink[];
 

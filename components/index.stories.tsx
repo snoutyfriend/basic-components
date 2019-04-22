@@ -14,13 +14,13 @@ import {DescriptionBoard} from "./snoutyfriend/descriptionSection/components/Des
 import {DescriptionBoardFooterViewObject} from "./snoutyfriend/descriptionSection/models/DescriptionBoardFooterViewObject";
 import {DescriptionBoardViewObject} from "./snoutyfriend/descriptionSection/models/DescriptionBoardViewObject";
 import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
-import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm/models/FindPlacesViewObject";
 import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
 import {FilterSectionViewObject} from "./snoutyfriend/searchPage/models/FilterSectionViewObject";
 import {SimpleDropdownObservable} from "./basic/dropdowns/dropdown/observables/SimpleDropdownObservable";
 import {DropdownFilterModel, DropdownFilterSize} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
 import {FiltersSection} from "./snoutyfriend/searchPage/components/FiltersSection";
 import {SearchableDropdown} from "./basic/dropdowns/dropdown/components/SearchableDropdown";
+import {FindPlacesHeaderViewObject} from "./snoutyfriend/header/models/FindPlacesHeaderViewObject";
 
 const buttonStories = storiesOf("basic/Buttons", module);
 buttonStories.add("primary-button",
@@ -149,7 +149,7 @@ snoutyFriendStories.add("Form", () => {
     return <FindPlacesForm searchableDropdownObservable={searchableDropdownObservable}/>;
 });
 snoutyFriendStories.add("Header", () => {
-    const viewObject = new FindPlacesViewObject({
+    const viewObject = new FindPlacesHeaderViewObject({
         share: "SHARE",
         socialLinks: [
             {

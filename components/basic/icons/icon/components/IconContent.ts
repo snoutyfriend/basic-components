@@ -1,7 +1,7 @@
-import * as arrowDown from "../images/arrow-down.svg";
-import * as facebook from "../images/facebook.svg";
-import * as instagram from "../images/instagram.svg";
-import * as magnifier from "../images/magnifier.svg";
+import * as arrowDown from "../../../../../static/images/icons/arrow-down.svg";
+import * as facebook from "../../../../../static/images/icons/facebook.svg";
+import * as instagram from "../../../../../static/images/icons/instagram.svg";
+import * as magnifier from "../../../../../static/images/icons/magnifier.svg";
 
 export enum IconName {
     FACEBOOK = "FACEBOOK",
