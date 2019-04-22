@@ -1,8 +1,8 @@
 import * as React from "react";
 import {FindPlacesHeaderViewObject} from "..";
-import * as logo from "../../../../static/images/icons/logo-blue.svg";
 import {Icon} from "../../../basic";
 import {SocialLink} from "../../../core/interfaces/SocialLink";
+import {ImageFilenames, ImagesRepository} from "../../../core/repositories/ImagesRepository";
 
 export interface FindPlacesHeaderProps {
     type?: FindPlacesHeaderType;
@@ -18,11 +18,12 @@ export enum FindPlacesHeaderType {
 export class FindPlacesHeader extends React.Component<FindPlacesHeaderProps, FindPlacesHeaderState> {
     public render() {
         const viewObject = this.props.viewObject;
+        const imagesRepository = new ImagesRepository();
 
         return (
             <div className={`find-places-header find-places-header--default ${this.getTypeClass(this.props.type)}`}>
                 <div className="find-places-header__logo">
-                    <img src={logo} alt={"alt"} />
+                    <img src={imagesRepository.getImage(ImageFilenames.LOGO_BLUE)} alt={"alt"} />
                 </div>
                 <div className="find-places-header__social flex flex--vertical-center">
                     <span className="find-places-header__share-text">
