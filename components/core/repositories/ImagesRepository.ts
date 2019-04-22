@@ -1,3 +1,5 @@
+import * as logo from "../../../static/images/logo-blue.svg";
+
 export enum IconFilenames {
     ARROW_DOWN = "arrow-down.svg",
     FACEBOOK = "facebook.svg",
@@ -20,7 +22,7 @@ export class ImagesRepository {
         return `${this.baseUrl}/icons/${icon}`;
     }
 
-    public getImage(image: ImageFilenames) {
-        return `${this.baseUrl}/${image}`;
+    public getImage(image: ImageFilenames): string {
+        return logo;
     }
 }
