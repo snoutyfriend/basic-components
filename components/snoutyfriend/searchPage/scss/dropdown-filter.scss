@@ -1,4 +1,6 @@
 .dropdown-filter {
+  $root: &;
+
   display: flex;
   padding: 25px 0;
 
@@ -11,5 +13,16 @@
   .dropdown {
     flex-basis: 100%;
     margin-left: 31px;
+  }
+
+  &--size-S {
+    #{$root}__label {
+      flex-basis: 60%;
+    }
+
+    .dropdown {
+      max-width: 40%;
+      margin-left: auto;
+    }
   }
 }

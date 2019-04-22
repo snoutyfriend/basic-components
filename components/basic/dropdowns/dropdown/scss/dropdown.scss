@@ -4,6 +4,8 @@
   font-family: $font-family;
   font-size: 18px;
   position: relative;
+  background: $color5;
+  cursor: pointer;
 
   &--active {
     border-bottom: 0;

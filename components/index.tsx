@@ -1,11 +1,9 @@
-import {array, select, text, withKnobs} from "@storybook/addon-knobs";
+import {select} from "@storybook/addon-knobs";
 import {storiesOf} from "@storybook/react";
-import {mount} from "enzyme";
 import * as React from "react";
 
 import "../scss/all.scss";
 import {PrimaryButton} from "./basic/buttons/primary-button";
-import {BasicDropdown} from "./basic/dropdowns/dropdown/components/BasicDropdown";
 import {SearchableDropdownObservable} from "./basic/dropdowns/dropdown/observables/SearchableDropdownObservable";
 import {Header, HeaderType} from "./basic/headers/header/components/Header";
 import {Icon} from "./basic/icons/icon/components/Icon";
@@ -20,7 +18,7 @@ import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm/models/FindPla
 import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
 import {FilterSectionViewObject} from "./snoutyfriend/searchPage/models/FilterSectionViewObject";
 import {SimpleDropdownObservable} from "./basic/dropdowns/dropdown/observables/SimpleDropdownObservable";
-import {DropdownFilterModel} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
+import {DropdownFilterModel, DropdownFilterSize} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
 import {FiltersSection} from "./snoutyfriend/searchPage/components/FiltersSection";
 import {SearchableDropdown} from "./basic/dropdowns/dropdown/components/SearchableDropdown";
 
@@ -241,6 +239,20 @@ snoutyFriendStories.add("Filter Section", () => {
                     {
                         key: "2",
                         name: "Restoran",
+                    },
+                ]),
+            }),
+            new DropdownFilterModel({
+                label: "Dozvoljeni kucni ljubimci:",
+                size: DropdownFilterSize.SMALL,
+                dropdownObservable: new SimpleDropdownObservable([
+                    {
+                        key: "1",
+                        name: "Da",
+                    },
+                    {
+                        key: "2",
+                        name: "Ne",
                     },
                 ]),
             }),

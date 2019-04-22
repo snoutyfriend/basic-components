@@ -3,6 +3,11 @@ import {DropdownObservable} from "../../../basic/dropdowns/dropdown/observables/
 export interface DropdownFilterModelProps {
     dropdownObservable: DropdownObservable;
     label: string;
+    size?: DropdownFilterSize;
+}
+export enum DropdownFilterSize {
+    SMALL = "S",
+    LARGE = "L",
 }
 export class DropdownFilterModel {
     constructor(private props: DropdownFilterModelProps) {}
@@ -13,5 +18,9 @@ export class DropdownFilterModel {
 
     public getLabel() {
         return this.props.label;
+    }
+
+    public getSize(): DropdownFilterSize {
+        return this.props.size || DropdownFilterSize.LARGE;
     }
 }

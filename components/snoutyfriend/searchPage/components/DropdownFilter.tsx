@@ -9,9 +9,9 @@ export interface FilterProps {
 export class DropdownFilter extends React.Component<FilterProps, {}> {
     public render() {
         const {filterModel} = this.props;
-
+        const size = filterModel.getSize();
         return (
-            <div className="dropdown-filter">
+            <div className={`dropdown-filter dropdown-filter--size-${size}`}>
                 <label className="dropdown-filter__label">
                     <Header
                         type={HeaderType.h4}>

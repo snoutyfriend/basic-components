@@ -2,12 +2,14 @@ import * as React from "react";
 import {DefaultComponentProps} from "../../../../core/interfaces/DefaultComponentProps";
 import {Icon} from "../../../icons/icon/components/Icon";
 import {IconName} from "../../../icons/icon/components/IconContent";
+import {DropdownConfiguration} from "../configurations/DropdownConfiguration";
 import {DropdownObservable} from "../observables/DropdownObservable";
 import {DropdownItemDetails} from "../observables/SimpleDropdownObservable";
 import {DropdownItem} from "./DropdownItem";
 
 export interface BasicDropdownProps extends DefaultComponentProps {
     dropdownObservable: DropdownObservable;
+    dropdownConfiguration?: DropdownConfiguration;
     activeItem?: DropdownItemDetails;
 }
 
