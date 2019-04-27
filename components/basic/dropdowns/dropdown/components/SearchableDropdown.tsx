@@ -1,14 +1,16 @@
 import * as React from "react";
 import {DefaultComponentProps} from "../../../../core/interfaces/DefaultComponentProps";
+import {IconFilenames} from "../../../../core/repositories/DefaultImagesRepository";
 import {Icon} from "../../../icons/icon/components/Icon";
-import {IconName} from "../../../icons/icon/components/IconContent";
 import {SearchableDropdownObservable} from "../observables/SearchableDropdownObservable";
 import {DropdownItemDetails} from "../observables/SimpleDropdownObservable";
 import {DropdownItem} from "./DropdownItem";
+import {ImagesRepository} from "../../../../core/interfaces/ImagesRepository";
 
 export interface DropdownProps extends DefaultComponentProps {
     searchableDropdownObservable: SearchableDropdownObservable;
     activeItem: DropdownItemDetails;
+    imagesRepository: ImagesRepository;
 }
 
 export interface DropdownState {
@@ -62,7 +64,8 @@ export class SearchableDropdown extends React.Component<DropdownProps, DropdownS
                         this.toggleDropdown();
                     }}>
                     <Icon
-                        iconName={IconName.ARROW_DOWN}
+                        imagesRepository={this.props.imagesRepository}
+                        iconName={IconFilenames.ARROW_DOWN}
                         alt="Arrow down"/>
                 </button>
             </div>

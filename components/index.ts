@@ -4,11 +4,26 @@ export {
     FindPlacesHeaderState,
     FindPlacesHeaderType,
     FindPlacesHeaderViewObject,
-    FindPlacesViewObjectProps,
+    FindPlacesHeaderViewObjectProps,
 } from "./snoutyfriend/header";
 export {
-    IconContent,
+    FindPlacesForm,
+    FindPlacesFormProps,
+    FindPlacesViewObject,
+    FindPlacesViewObjectProps,
+} from "./snoutyfriend/findPlacesForm";
+export {
     IconProps,
-    IconName,
     Icon,
+    DropdownProps,
+    SearchableDropdownObservable,
+    SearchableDropdown,
+    SimpleDropdownObservable,
+    DropdownItemDetails,
 } from "./basic";
+export {
+    ImageFilenames,
+    IconFilenames,
+    DefaultImagesRepository,
+    StaticRepositoryConfiguration,
+} from "./core";

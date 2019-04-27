@@ -4,4 +4,4 @@ export {
     FindPlacesHeaderState,
     FindPlacesHeaderType,
 } from "./components/FindPlacesHeader";
-export {FindPlacesHeaderViewObject, FindPlacesViewObjectProps} from "./models/FindPlacesHeaderViewObject";
+export {FindPlacesHeaderViewObject, FindPlacesHeaderViewObjectProps} from "./models/FindPlacesHeaderViewObject";

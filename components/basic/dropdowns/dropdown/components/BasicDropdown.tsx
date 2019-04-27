@@ -1,7 +1,8 @@
 import * as React from "react";
 import {DefaultComponentProps} from "../../../../core/interfaces/DefaultComponentProps";
+import {ImagesRepository} from "../../../../core/interfaces/ImagesRepository";
+import {IconFilenames} from "../../../../core/repositories/DefaultImagesRepository";
 import {Icon} from "../../../icons/icon/components/Icon";
-import {IconName} from "../../../icons/icon/components/IconContent";
 import {DropdownConfiguration} from "../configurations/DropdownConfiguration";
 import {DropdownObservable} from "../observables/DropdownObservable";
 import {DropdownItemDetails} from "../observables/SimpleDropdownObservable";
@@ -11,6 +12,7 @@ export interface BasicDropdownProps extends DefaultComponentProps {
     dropdownObservable: DropdownObservable;
     dropdownConfiguration?: DropdownConfiguration;
     activeItem?: DropdownItemDetails;
+    imagesRepository: ImagesRepository;
 }
 
 export interface BasicDropdownState {
@@ -59,6 +61,7 @@ export class BasicDropdown extends React.Component<BasicDropdownProps, BasicDrop
     }
 
     public render() {
+        const imagesRepository = this.props.imagesRepository;
         return (
             <div className={`dropdown ${this.props.className || ""} ${this.getActiveStyleClass()}`}>
                 {this.renderActiveItemContainer()}
@@ -69,8 +72,9 @@ export class BasicDropdown extends React.Component<BasicDropdownProps, BasicDrop
                         this.toggleDropdown();
                     }}>
                     <Icon
-                        iconName={IconName.ARROW_DOWN}
-                        alt="Arrow down"/>
+                        iconName={IconFilenames.ARROW_DOWN}
+                        alt="Arrow down"
+                        imagesRepository={imagesRepository}/>
                 </button>
             </div>
         );

@@ -4,13 +4,15 @@ import {Paragraph} from "../../../basic/paragraphs/paragraph/components/Paragrap
 import {DropdownFilterModel} from "../models/DropdownFilterModel";
 import {FilterSectionViewObject} from "../models/FilterSectionViewObject";
 import {DropdownFilter} from "./DropdownFilter";
+import {ImagesRepository} from "../../../core/interfaces/ImagesRepository";
 
 export interface FiltersSectionProps {
     viewObject: FilterSectionViewObject;
+    imagesRepository: ImagesRepository;
 }
 export class FiltersSection extends React.Component<FiltersSectionProps, {}> {
     public render() {
-        const {viewObject} = this.props;
+        const {viewObject, imagesRepository} = this.props;
 
         return (
             <div className="filters-section">
@@ -23,7 +25,9 @@ export class FiltersSection extends React.Component<FiltersSectionProps, {}> {
                 <div className="filters-section__filters">
                     {
                         viewObject.filters.map( (filter: DropdownFilterModel, index: number) => {
-                            return <DropdownFilter key={index} filterModel={filter} />;
+                            return <DropdownFilter
+                                imagesRepository={imagesRepository}
+                                key={index} filterModel={filter} />;
                         })
                     }
                 </div>

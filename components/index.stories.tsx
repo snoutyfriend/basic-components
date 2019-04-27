@@ -4,23 +4,29 @@ import * as React from "react";
 
 import "../scss/all.scss";
 import {PrimaryButton} from "./basic/buttons/primary-button";
+import {SearchableDropdown} from "./basic/dropdowns/dropdown/components/SearchableDropdown";
 import {SearchableDropdownObservable} from "./basic/dropdowns/dropdown/observables/SearchableDropdownObservable";
+import {SimpleDropdownObservable} from "./basic/dropdowns/dropdown/observables/SimpleDropdownObservable";
 import {Header, HeaderType} from "./basic/headers/header/components/Header";
 import {Icon} from "./basic/icons/icon/components/Icon";
-import {IconName} from "./basic/icons/icon/components/IconContent";
 import {Panel} from "./basic/panels/panel/components/Panel";
 import {Paragraph} from "./basic/paragraphs/paragraph/components/Paragraph";
+import {DefaultImagesRepository, IconFilenames} from "./core/repositories/DefaultImagesRepository";
+import {StaticRepositoryConfiguration} from "./core/repositories/StaticRepositoryConfiguration";
 import {DescriptionBoard} from "./snoutyfriend/descriptionSection/components/DescriptionBoard";
-import {DescriptionBoardFooterViewObject} from "./snoutyfriend/descriptionSection/models/DescriptionBoardFooterViewObject";
+import {
+    DescriptionBoardFooterViewObject,
+} from "./snoutyfriend/descriptionSection/models/DescriptionBoardFooterViewObject";
 import {DescriptionBoardViewObject} from "./snoutyfriend/descriptionSection/models/DescriptionBoardViewObject";
 import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
 import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
-import {FilterSectionViewObject} from "./snoutyfriend/searchPage/models/FilterSectionViewObject";
-import {SimpleDropdownObservable} from "./basic/dropdowns/dropdown/observables/SimpleDropdownObservable";
-import {DropdownFilterModel, DropdownFilterSize} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
-import {FiltersSection} from "./snoutyfriend/searchPage/components/FiltersSection";
-import {SearchableDropdown} from "./basic/dropdowns/dropdown/components/SearchableDropdown";
 import {FindPlacesHeaderViewObject} from "./snoutyfriend/header/models/FindPlacesHeaderViewObject";
+import {FiltersSection} from "./snoutyfriend/searchPage/components/FiltersSection";
+import {DropdownFilterModel, DropdownFilterSize} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
+import {FilterSectionViewObject} from "./snoutyfriend/searchPage/models/FilterSectionViewObject";
+import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm";
+
+const imagesRepository = new DefaultImagesRepository();
 
 const buttonStories = storiesOf("basic/Buttons", module);
 buttonStories.add("primary-button",
@@ -111,6 +117,7 @@ dropdownStories.add("locations",
     ]);
     return (
         <SearchableDropdown
+            imagesRepository={imagesRepository}
             searchableDropdownObservable={searchableDropdownObservable}
             activeItem={{
                 key: "1",
@@ -124,9 +131,9 @@ iconStories.add("basic",
     () => {
         return (
             <div>
-                <Icon iconName={IconName.MAGNIFIER} alt={"Magnifier"} />
-                <Icon iconName={IconName.FACEBOOK}  alt={"Facebook"}/>
-                <Icon iconName={IconName.INSTAGRAM} alt={"Instagra"} />
+                <Icon iconName={IconFilenames.MAGNIFIER} alt={"Magnifier"} imagesRepository={imagesRepository} />
+                <Icon iconName={IconFilenames.FACEBOOK}  alt={"Facebook"} imagesRepository={imagesRepository} />
+                <Icon iconName={IconFilenames.INSTAGRAM} alt={"Instagram"} imagesRepository={imagesRepository} />
             </div>
         );
     });
@@ -146,7 +153,15 @@ snoutyFriendStories.add("Form", () => {
             name: "Rijeka",
         },
     ]);
-    return <FindPlacesForm searchableDropdownObservable={searchableDropdownObservable}/>;
+    const findPlacesViewObject = new FindPlacesViewObject({
+        description: "Odaberite grad i pronadjite kafice i restorane u kojima su dopustene zivotinje!",
+        title: "Find Pet-Friendly Places",
+        ctaSearch: "Find",
+    });
+    return <FindPlacesForm
+        viewObject={findPlacesViewObject}
+        imagesRepository={imagesRepository}
+        searchableDropdownObservable={searchableDropdownObservable}/>;
 });
 snoutyFriendStories.add("Header", () => {
     const viewObject = new FindPlacesHeaderViewObject({
@@ -158,7 +173,7 @@ snoutyFriendStories.add("Header", () => {
                     value: "",
                 },
                 alt: "Facebook",
-                iconName: IconName.FACEBOOK,
+                iconName: IconFilenames.FACEBOOK,
             },
             {
                 link: {
@@ -166,7 +181,7 @@ snoutyFriendStories.add("Header", () => {
                     value: "",
                 },
                 alt: "Instagram",
-                iconName: IconName.INSTAGRAM,
+                iconName: IconFilenames.INSTAGRAM,
             },
         ],
     });
@@ -176,10 +191,12 @@ snoutyFriendStories.add("Header", () => {
         "FIXED TOP": FindPlacesHeaderType.FIXED,
     };
     const type = select(label, values, FindPlacesHeaderType.DEFAULT);
+    const staticUrl = "https://github.com/snoutyfriend/basic-components/tree/components/basic/static";
+    const staticUrlConfiguration = new StaticRepositoryConfiguration(staticUrl);
     return (
         <div>
             <div className="bg bg--fixed-fill bg--gradient-1"/>
-            <FindPlacesHeader viewObject={viewObject} type={type}/>
+            <FindPlacesHeader imagesRepository={imagesRepository} viewObject={viewObject} type={type}/>
         </div>
     );
 });
@@ -259,7 +276,7 @@ snoutyFriendStories.add("Filter Section", () => {
         ],
     });
 
-    return <FiltersSection viewObject={filterSectionViewObject} />;
+    return <FiltersSection imagesRepository={imagesRepository} viewObject={filterSectionViewObject} />;
 });
 
 function getHeaderInAllColors(headerType: HeaderType) {
