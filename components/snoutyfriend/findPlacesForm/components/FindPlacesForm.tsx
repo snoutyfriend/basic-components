@@ -7,12 +7,15 @@ import {Header} from "../../../basic/headers/header/components/Header";
 import {Panel, Type} from "../../../basic/panels/panel/components/Panel";
 import {Paragraph} from "../../../basic/paragraphs/paragraph/components/Paragraph";
 import {ImagesRepository} from "../../../core/interfaces/ImagesRepository";
+import {ObservableForm} from "../controllers/ObservableForm";
 
 export interface FindPlacesFormProps {
     searchableDropdownObservable: SearchableDropdownObservable;
     imagesRepository: ImagesRepository;
     viewObject: FindPlacesViewObject;
+    observableForm: ObservableForm;
 }
+
 export interface FindPlacesFormState {}
 
 export class FindPlacesForm extends React.Component<FindPlacesFormProps, FindPlacesFormState> {
@@ -40,7 +43,11 @@ export class FindPlacesForm extends React.Component<FindPlacesFormProps, FindPla
                         />
                     </div>
                     <div className="margin--bottom-top-spaced">
-                        <PrimaryButton className="size--full">
+                        <PrimaryButton
+                            onClick={() => {
+                                this.props.observableForm.setSubmitted();
+                            }}
+                            className="size--full">
                             {viewObject.ctaSearch}
                         </PrimaryButton>
                     </div>

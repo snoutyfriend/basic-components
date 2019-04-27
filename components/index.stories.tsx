@@ -25,6 +25,7 @@ import {FiltersSection} from "./snoutyfriend/searchPage/components/FiltersSectio
 import {DropdownFilterModel, DropdownFilterSize} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
 import {FilterSectionViewObject} from "./snoutyfriend/searchPage/models/FilterSectionViewObject";
 import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm";
+import {ObservableForm} from "./snoutyfriend/findPlacesForm/controllers/ObservableForm";
 
 const imagesRepository = new DefaultImagesRepository();
 
@@ -158,7 +159,12 @@ snoutyFriendStories.add("Form", () => {
         title: "Find Pet-Friendly Places",
         ctaSearch: "Find",
     });
+    const observableForm = new ObservableForm([]);
+    observableForm.getSubmittedObservable().subscribe((inputStates) => {
+        console.log("Submitted", inputStates);
+    });
     return <FindPlacesForm
+        observableForm={observableForm}
         viewObject={findPlacesViewObject}
         imagesRepository={imagesRepository}
         searchableDropdownObservable={searchableDropdownObservable}/>;
