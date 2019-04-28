@@ -18,14 +18,19 @@ import {
     DescriptionBoardFooterViewObject,
 } from "./snoutyfriend/descriptionSection/models/DescriptionBoardFooterViewObject";
 import {DescriptionBoardViewObject} from "./snoutyfriend/descriptionSection/models/DescriptionBoardViewObject";
+import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm";
 import {FindPlacesForm} from "./snoutyfriend/findPlacesForm/components/FindPlacesForm";
+import {
+    SocialImages,
+    SocialImagesProps,
+    SocialImagesViewObject,
+} from "./snoutyfriend/findPlacesForm/components/SocialImages";
+import {ObservableForm} from "./snoutyfriend/findPlacesForm/controllers/ObservableForm";
 import {FindPlacesHeader, FindPlacesHeaderType} from "./snoutyfriend/header/components/FindPlacesHeader";
 import {FindPlacesHeaderViewObject} from "./snoutyfriend/header/models/FindPlacesHeaderViewObject";
 import {FiltersSection} from "./snoutyfriend/searchPage/components/FiltersSection";
 import {DropdownFilterModel, DropdownFilterSize} from "./snoutyfriend/searchPage/models/DropdownFilterModel";
 import {FilterSectionViewObject} from "./snoutyfriend/searchPage/models/FilterSectionViewObject";
-import {FindPlacesViewObject} from "./snoutyfriend/findPlacesForm";
-import {ObservableForm} from "./snoutyfriend/findPlacesForm/controllers/ObservableForm";
 
 const imagesRepository = new DefaultImagesRepository();
 
@@ -169,6 +174,37 @@ snoutyFriendStories.add("Form", () => {
         imagesRepository={imagesRepository}
         searchableDropdownObservable={searchableDropdownObservable}/>;
 });
+
+snoutyFriendStories.add("Social images", () => {
+    const viewObject: SocialImagesViewObject = {
+        title: "Pridruzite se Snoutyfriend zajednici na",
+        links: [
+            {
+                href: "",
+                value: "Facebooku",
+            },
+            {
+                href: "",
+                value: "Instagramu",
+            },
+        ],
+        andSeparator: "i",
+        images: [
+            "https://scontent-lht6-1.cdninstagram.com/vp/7c60c7669f848fffcb3a0da8847a4812/5D5703B7/t51.2885-15/sh0.08/e35/s640x640/56962154_2269904143268101_3706237357547553237_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/ba2bf9063bd537326dc2cacef449972c/5D5AB71C/t51.2885-15/e35/54513663_585604535283742_4348662001913804805_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/7c60c7669f848fffcb3a0da8847a4812/5D5703B7/t51.2885-15/sh0.08/e35/s640x640/56962154_2269904143268101_3706237357547553237_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/7c60c7669f848fffcb3a0da8847a4812/5D5703B7/t51.2885-15/sh0.08/e35/s640x640/56962154_2269904143268101_3706237357547553237_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/7c60c7669f848fffcb3a0da8847a4812/5D5703B7/t51.2885-15/sh0.08/e35/s640x640/56962154_2269904143268101_3706237357547553237_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/ba2bf9063bd537326dc2cacef449972c/5D5AB71C/t51.2885-15/e35/54513663_585604535283742_4348662001913804805_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/7c60c7669f848fffcb3a0da8847a4812/5D5703B7/t51.2885-15/sh0.08/e35/s640x640/56962154_2269904143268101_3706237357547553237_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/ba2bf9063bd537326dc2cacef449972c/5D5AB71C/t51.2885-15/e35/54513663_585604535283742_4348662001913804805_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/7c60c7669f848fffcb3a0da8847a4812/5D5703B7/t51.2885-15/sh0.08/e35/s640x640/56962154_2269904143268101_3706237357547553237_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/ba2bf9063bd537326dc2cacef449972c/5D5AB71C/t51.2885-15/e35/54513663_585604535283742_4348662001913804805_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+            "https://scontent-lht6-1.cdninstagram.com/vp/7c60c7669f848fffcb3a0da8847a4812/5D5703B7/t51.2885-15/sh0.08/e35/s640x640/56962154_2269904143268101_3706237357547553237_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com",
+        ],
+    };
+    return <SocialImages viewObject={viewObject} />;
+});
 snoutyFriendStories.add("Header", () => {
     const viewObject = new FindPlacesHeaderViewObject({
         share: "SHARE",
@@ -203,6 +239,7 @@ snoutyFriendStories.add("Header", () => {
         <div>
             <div className="bg bg--fixed-fill bg--gradient-1"/>
             <FindPlacesHeader imagesRepository={imagesRepository} viewObject={viewObject} type={type}/>
+            <div style={{height: "2000px"}}></div>
         </div>
     );
 });

@@ -12,6 +12,9 @@ export {
     FindPlacesViewObject,
     FindPlacesViewObjectProps,
     ObservableForm,
+    SocialImagesProps,
+    SocialImages,
+    SocialImagesViewObject,
 } from "./snoutyfriend/findPlacesForm";
 export {
     IconProps,

@@ -10,7 +10,9 @@ export interface FindPlacesHeaderProps {
     viewObject: FindPlacesHeaderViewObject;
     imagesRepository: ImagesRepository;
 }
-export interface FindPlacesHeaderState {}
+export interface FindPlacesHeaderState {
+    type: FindPlacesHeaderType;
+}
 
 export enum FindPlacesHeaderType {
     DEFAULT = "",
@@ -18,12 +20,27 @@ export enum FindPlacesHeaderType {
 }
 
 export class FindPlacesHeader extends React.Component<FindPlacesHeaderProps, FindPlacesHeaderState> {
+
+    constructor(props: FindPlacesHeaderProps) {
+        super(props);
+
+        this.state = {
+            type: this.props.type,
+        };
+    }
+
+    public componentDidMount() {
+        window.addEventListener("scroll", () => {
+            this.handleScroll();
+        });
+    }
+
     public render() {
         const viewObject = this.props.viewObject;
         const imagesRepository = this.props.imagesRepository;
 
         return (
-            <div className={`find-places-header find-places-header--default ${this.getTypeClass(this.props.type)}`}>
+            <div className={`find-places-header find-places-header--default ${this.getTypeClass(this.state.type)}`}>
                 <div className="find-places-header__logo">
                     <img src={imagesRepository.getImage(ImageFilenames.LOGO_BLUE)} alt={"alt"} />
                 </div>
@@ -64,5 +81,29 @@ export class FindPlacesHeader extends React.Component<FindPlacesHeaderProps, Fin
                     imagesRepository={imagesRepository}/>
             </a>
         );
+    }
+
+    private handleScroll() {
+        const scrollTop = window.scrollY;
+
+        if (scrollTop <= 0) {
+            if (this.state.type === FindPlacesHeaderType.DEFAULT) {
+                return;
+            }
+
+            this.setState({
+                type: FindPlacesHeaderType.DEFAULT,
+            });
+
+            return;
+        }
+
+        if (this.state.type === FindPlacesHeaderType.FIXED) {
+            return;
+        }
+
+        this.setState({
+            type: FindPlacesHeaderType.FIXED,
+        });
     }
 }
