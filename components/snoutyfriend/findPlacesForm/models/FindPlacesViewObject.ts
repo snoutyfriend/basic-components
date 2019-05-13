@@ -1,17 +1,17 @@
-import {Link} from "../../../core/interfaces/Link";
-import {SocialLink} from "../../../core/interfaces/SocialLink";
-
 export interface FindPlacesViewObjectProps {
-    share: string;
-    socialLinks: SocialLink[];
+    title: string;
+    description: string;
+    ctaSearch: string;
 }
 
 export class FindPlacesViewObject implements FindPlacesViewObjectProps {
-    public share: string;
-    public socialLinks: SocialLink[];
+    public title: string;
+    public ctaSearch: string;
+    public description: string;
 
     constructor(props: FindPlacesViewObjectProps) {
-        this.share = props.share;
-        this.socialLinks = props.socialLinks;
+        this.title = props.title;
+        this.ctaSearch = props.ctaSearch;
+        this.description = props.description;
     }
 }

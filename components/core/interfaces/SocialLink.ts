@@ -1,8 +1,8 @@
-import {IconName} from "../../icons/icon/components/IconContent";
+import {IconFilenames} from "../repositories/DefaultImagesRepository";
 import {Link} from "./Link";
 
 export interface SocialLink {
     link: Link;
-    iconName: IconName;
+    iconName: IconFilenames;
     alt: string;
 }

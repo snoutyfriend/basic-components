@@ -1,0 +1,8 @@
+@mixin col($col: 0, $sum: 0, $gap: 0, $align: middle, $first: false, $last: false, $tablet_breakpoint: 768px) {
+  width: if($col > 0, percentage($col/$sum), auto);
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: if($first, 0, $gap);
+  padding-right: if($last, 0, $gap);
+  vertical-align: $align;
+}

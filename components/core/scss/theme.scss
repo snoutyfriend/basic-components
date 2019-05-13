@@ -7,8 +7,9 @@ $color4: #e4747b;
 $color5: #ffffff;
 $color6: #d8d8d8;
 $color6-transparent: rgba(0,0,0,0.12);
+$color7: #f5f6f8;
 
-$gradient1: linear-gradient(to bottom, #f5f6f8, #fefefe);
+$gradient1: linear-gradient(to bottom, $color7, #fefefe);
 //
 $dropdown-color: $color6;
 

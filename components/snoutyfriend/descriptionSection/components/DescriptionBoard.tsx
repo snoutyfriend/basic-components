@@ -1,8 +1,6 @@
 import * as React from "react";
-import {SocialLink} from "../../../core/interfaces/SocialLink";
-import {Header, HeaderType} from "../../../headers/header/components/Header";
-import {Icon} from "../../../icons/icon/components/Icon";
-import {Paragraph} from "../../../paragraphs/paragraph/components/Paragraph";
+import {Header, HeaderType} from "../../../basic/headers/header/components/Header";
+import {Paragraph} from "../../../basic/paragraphs/paragraph/components/Paragraph";
 import {DescriptionBoardViewObject} from "../models/DescriptionBoardViewObject";
 import {DescriptionBoardFooter} from "./DescriptionBoardFooter";
 

@@ -1,0 +1,12 @@
+{
+  "name": "@snoutyfriend/basic-components",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rxjs": "^6.4.0"
+  },
+  "repository": "git@github.com:snoutyfriend/basic-components.git",
+  "author": "Tomislav Fabeta"
+}
