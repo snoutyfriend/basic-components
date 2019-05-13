@@ -17,6 +17,12 @@ export {
     SocialImagesViewObject,
 } from "./snoutyfriend/findPlacesForm";
 export {
+    FilterSectionViewObject,
+    FiltersSection,
+    DropdownFilterModel,
+    DropdownFilterSize,
+} from "./snoutyfriend/searchPage";
+export {
     IconProps,
     Icon,
     DropdownProps,
