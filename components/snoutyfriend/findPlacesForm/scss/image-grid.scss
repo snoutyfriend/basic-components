@@ -1,37 +1,27 @@
 .image-grid {
+
   &--random {
 
   }
 
   &__image {
-    @include col($align: top, $gap: 50px);
-    max-width: 280px;
+    @include col($align: top, $gap: 15px);
+    width: 50%;
 
     img {
       width: 100%;
     }
 
-    &:nth-child(2n+1) {
-      img {
-        margin-top: 100px;
-      }
+    &:nth-child(2n + 2) {
+      padding-right: 0;
     }
 
-    &:nth-child(5n + 0) {
-      img {
-        margin-top: 50px;
-      }
-    }
+    &:nth-child(2n + 1) {
+      padding-left: 0;
 
-    &:nth-child(4n + 0), &:nth-child(3n + 0) {
       img {
-        margin-left: -50px;
+        margin-top: 30px;
       }
-    }
-
-    &:nth-child(4n + 0) {
-      max-width: 330px;
-      margin-left: 17px;
     }
   }
 }

@@ -25,7 +25,7 @@ export class FindPlacesForm extends React.Component<FindPlacesFormProps, FindPla
         const searchableDropdownObservable = this.props.searchableDropdownObservable;
         return (
             <div className="find-places-form">
-                <Panel type={Type.BOXED} className="panel--margin">
+                <Panel type={Type.BOXED}>
                     <Header>{viewObject.title}</Header>
                     <div className="margin--bottom-top find-places-form--subtitle">
                         <Paragraph>
